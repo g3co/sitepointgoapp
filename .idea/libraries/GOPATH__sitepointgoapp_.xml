@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;sitepointgoapp&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../github.com" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="file://$PROJECT_DIR$/../github.com/go-sql-driver/mysql/.github" />
+      <root url="file://$PROJECT_DIR$/../github.com/beego/bee/testdata" />
+      <root url="file://$PROJECT_DIR$/../github.com/astaxie/beego/.git" />
+      <root url="file://$PROJECT_DIR$/../github.com/go-sql-driver/mysql/.git" />
+      <root url="file://$PROJECT_DIR$/../github.com/astaxie/beego/.github" />
+      <root url="file://$PROJECT_DIR$" />
+      <root url="file://$PROJECT_DIR$/../github.com/astaxie/beego/utils/testdata" />
+      <root url="file://$PROJECT_DIR$/../github.com/beego/bee/.git" />
+    </excluded>
+  </library>
+</component>
