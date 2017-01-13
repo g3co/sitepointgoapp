@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8" />
-    <title>{{.Title}}</title>
-</head>
-<body>
-    <h1>{{.Text}}</h1>
-</body>
-</html>
+{{ template "header.tpl" . }}
+
+<h1>{{.Text}}</h1>
+{{range $key, $val := .s}}
+{{$key}}
+{{$val}}
+{{end}}
+{{ template "footer.tpl" . }}

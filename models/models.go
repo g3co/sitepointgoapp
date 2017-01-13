@@ -11,13 +11,17 @@ type Users struct {
 	Info string
 }
 
-func (a *Users) TableName() string {
-	return "users"
+type News struct {
+	Id int
+	Name string
+	Prev string
+	Content string
 }
+
 
 func init() {
 	// Need to register model in init
-	orm.RegisterModel(new(Users))
+	orm.RegisterModel(new(Users), new(News))
 }
 
 func AddUser(username string) (error) {
