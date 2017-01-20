@@ -23,22 +23,27 @@ func (c *MainController) NewItemAction() {
 	number, _ := strconv.Atoi(c.Ctx.Input.Param(":id"))
 
 	o := orm.NewOrm()
+	newItem := models.News{Id: number}
+	o.Read(&newItem)
 
-	user := models.News{Id: number}
-
-	err := o.Read(&user)
-
-	if(err != nil){
-		fmt.Println("News not found")
-	}
-
-	beego.Debug(user)
-
-	c.Data["Title"] = user.Name
-	c.Data["Text"] = user.Content
+	c.Data["Title"] = newItem.Name
+	c.Data["Text"] = newItem.Content
 
 	c.TplName = "default/news_item.tpl"
 
+}
+
+func (main *MainController) NewsListAction() {
+	main.Data["Title"] = "Test"
+	main.Data["Email"] = "your.email.address@example.com"
+	main.Data["EmailName"] = "Your Name"
+	main.Data["Id"] = "One"
+
+	news := models.GetNews(1)
+
+	main.Data["NewsList"] = news
+
+	main.TplName = "default/news_list.tpl"
 }
 
 func (main *MainController) TestAction() {
@@ -55,46 +60,5 @@ func (main *MainController) TestAction() {
 
 	fmt.Println(o.Insert(user))
 
-
-	//err := models.AddUser("test")
-	//if(err == nil){
-	//	main.Data["Result"] = true
-	//}
-
 	main.TplName = "default/hello-sitepoint.tpl"
-}
-
-func (main *MainController) NewsListAction() {
-	main.Data["Title"] = "Test"
-	main.Data["Email"] = "your.email.address@example.com"
-	main.Data["EmailName"] = "Your Name"
-	main.Data["Id"] = "One"
-
-	o := orm.NewOrm()
-
-	user := models.News{}
-
-	err := o.Read(&user)
-
-	if(err != nil){
-		fmt.Println("News not found")
-	}
-
-	beego.Debug(user)
-
-	//o := orm.NewOrm()
-	//
-	//user := new(models.Users)
-	//user.Name = "string"
-	//user.Info = "rand"
-
-	//fmt.Println(o.Insert(user))
-
-
-	//err := models.AddUser("test")
-	//if(err == nil){
-	//	main.Data["Result"] = true
-	//}
-
-	main.TplName = "default/news_list.tpl"
 }

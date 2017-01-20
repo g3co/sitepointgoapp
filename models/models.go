@@ -32,3 +32,25 @@ func AddUser(username string) (error) {
 
 	return err
 }
+
+func (a *News) TableName() string {
+	return "news"
+}
+
+func GetNews(user int) ([]News) {
+	o := orm.NewOrm()
+	o.Using("default")
+	var result []News
+	num, err := o.Raw("SELECT * FROM test.news").QueryRows(&result)
+
+
+	if num < 0 {
+
+	}
+
+	if err == nil {
+
+	}
+
+	return result
+}
